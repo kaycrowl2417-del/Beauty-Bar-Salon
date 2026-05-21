@@ -2,83 +2,115 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>BEAUTY BAR</title>
-
-  <!-- CSS LINK -->
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
+  <header class="site-header" id="home">
+    <nav class="nav" aria-label="Primary navigation">
+      <div class="nav-links">
+        <a class="active" href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </div>
 
-<!-- NAV -->
-<div class="nav">
-  <div class="logo">BEAUTY BAR ON THE BOULEVARD</div>
+      <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
 
-  <div class="nav-links">
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#services">Services</a>
-    <a href="#contact">Contact</a>
-  </div>
-</div>
+      <button class="nav-cta" type="button" onclick="scrollToContact()">CONTACT US</button>
+    </nav>
 
-<!-- HERO -->
-<section class="hero" id="home">
+    <section class="hero" aria-label="Beauty Bar hero">
+      <div class="hero-copy reveal visible">
+        <div class="monogram" aria-hidden="true">B</div>
+        <p class="eyebrow">BEAUTY BAR</p>
+        <p class="subbrand">ON THE BOULEVARD</p>
+        <h1>Elevated Beauty in an Industrial Chic Setting</h1>
+        <div class="divider" aria-hidden="true"></div>
+        <p class="hero-text">A modern salon experience built on precision, detail, and minimal industrial design.</p>
+        <button class="btn click" type="button" onclick="scrollToContact()">CONTACT US</button>
+      </div>
 
-  <div class="hero-box">
-    <h1>Elevated Beauty in an Industrial Chic Setting</h1>
-    <p>A modern salon experience built on precision, detail, and minimal industrial design.</p>
-  </div>
-  <button class="hero-btn click" onclick="scrollToContact()">CONTACT US</button>
+      <div class="salon-scene reveal visible" aria-hidden="true">
+        <div class="pipe-shelf shelf-left">
+          <span></span><span></span><span></span><span></span>
+        </div>
+        <div class="pipe-shelf shelf-right">
+          <span></span><span></span><span></span>
+        </div>
+        <div class="mirror mirror-one"></div>
+        <div class="mirror mirror-two"></div>
+        <div class="styling-chair chair-one"></div>
+        <div class="styling-chair chair-two"></div>
+        <div class="counter"></div>
+      </div>
 
-</section>
+      <a class="scroll-cue" href="#about" aria-label="Scroll to about section"></a>
+    </section>
+  </header>
 
-<!-- ABOUT -->
-<section class="about" id="about">
+  <main>
+    <section class="about section reveal" id="about">
+      <div class="portrait-panel" aria-hidden="true">
+        <div class="portrait-frame">
+          <div class="stylist"></div>
+          <div class="client"></div>
+          <div class="chair-back"></div>
+        </div>
+      </div>
 
-  <h2>About</h2>
-  <p>Welcome to our salon! We are a team of professional stylists dedicated to providing exceptional service and cutting-edge techniques.</p>
+      <div class="section-copy">
+        <h2>About Our Salon</h2>
+        <div class="divider small" aria-hidden="true"></div>
+        <p>Welcome to our salon! We are a team of professional stylists dedicated to providing exceptional service and cutting-edge techniques.</p>
+      </div>
+    </section>
 
-</section>
+    <section class="contact section reveal" id="contact">
+      <div class="section-heading">
+        <h2>Contact</h2>
+        <p>We'd love to hear from you.</p>
+      </div>
 
-<!-- SERVICES -->
-<section class="services" id="services">
-  <h2>Services</h2>
+      <div class="grid contact-grid">
+        <article class="card contact-card">
+          <span class="round-icon location" aria-hidden="true"></span>
+          <h3>LOCATION</h3>
+          <p>408 E South Blvd, Crawfordsville, IN 47933</p>
+        </article>
 
-  <div class="grid">
-    <div class="card">Precision Haircuts</div>
-    <div class="card">Beard Grooming</div>
-    <div class="card">Color Treatment</div>
-    <div class="card">Styling Session</div>
-  </div>
-</section>
+        <article class="card contact-card">
+          <span class="round-icon hours" aria-hidden="true"></span>
+          <h3>HOURS</h3>
+          <p>Sunday: CLOSED</p>
+          <p>Mon-Fri: 9:00am - 5:00pm</p>
+          <p>Saturday: 9:00am - 2:00pm</p>
+        </article>
 
-<!-- CONTACT -->
-<section class="contact" id="contact">
-  <h2>Contact</h2>
+        <article class="card contact-card">
+          <span class="round-icon phone" aria-hidden="true"></span>
+          <h3>PHONE</h3>
+          <p><a href="tel:17653655000">(765) 365-5000</a></p>
+        </article>
+      </div>
+    </section>
+  </main>
 
-  <div class="contact-grid grid">
-    <div class="card">
-      LOCATION
-      408 E South Blvd, Crawfordsville, IN 47933</div>
-    <div class="card">
-      HOURS
-      Sunday: CLOSED 
-      Mon-Fri: 9:00am - 5:00pm 
-      Saturday: 9:00am - 2:00pm</div>
-    </div>
-    <div class="card">
-      PHONE
-      (765) 365-5000
-    </div>
-  </div>
-</section>
+  <footer class="footer">
+    <div class="footer-line" aria-hidden="true"></div>
+    <div class="monogram small-mark" aria-hidden="true">B</div>
+    <p class="footer-brand">BEAUTY BAR</p>
+    <p class="footer-subbrand">ON THE BOULEVARD</p>
+    <p>© 2026 Beauty Bar On The Boulevard. All rights reserved.</p>
+  </footer>
 
-<footer>
-  © 2026 Beauty Bar On The Boulevard. All rights reserved.
-</footer>
+  <button class="top-button" type="button" aria-label="Back to top">↑</button>
 
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>

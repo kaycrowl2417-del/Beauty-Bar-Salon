@@ -52,7 +52,7 @@ a {
 }
 
 .nav {
-  width: min(1180px, calc(100% - 48px));
+  width: min(1320px, calc(100% - 28px));
   min-height: 92px;
   margin: 0 auto;
   display: flex;
@@ -76,7 +76,7 @@ a {
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 34px;
+  gap: clamp(24px, 4vw, 46px);
 }
 
 .nav-links a {
@@ -473,108 +473,110 @@ h2 {
 }
 
 .about {
+  display: block;
+}
+
+.team-heading {
+  max-width: 720px;
+  margin-bottom: 34px;
+}
+
+.team-grid {
   display: grid;
-  grid-template-columns: minmax(300px, 0.9fr) minmax(0, 1.1fr);
-  gap: clamp(34px, 6vw, 68px);
+  grid-template-columns: minmax(0, 1fr);
+  gap: 26px;
+  align-items: start;
+}
+
+.stylist-card {
+  display: grid;
+  grid-template-columns: minmax(230px, 0.36fr) minmax(0, 1fr);
+  gap: clamp(24px, 4vw, 46px);
   align-items: center;
-}
-
-.portrait-panel {
-  min-height: 430px;
-  padding: 20px;
+  min-height: 100%;
+  padding: clamp(18px, 2.5vw, 28px);
   border: 1px solid var(--black);
-  background: rgba(255, 255, 255, 0.56);
-  box-shadow: 18px 18px 0 rgba(8, 8, 8, 0.08);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.78), rgba(232, 229, 222, 0.78)),
+    rgba(255, 255, 255, 0.74);
+  box-shadow: 0 18px 38px rgba(8, 8, 8, 0.07);
 }
 
-.portrait-frame {
+.stylist-card:nth-child(even) {
+  grid-template-columns: minmax(0, 1fr) minmax(230px, 0.36fr);
+}
+
+.stylist-card:nth-child(even) .stylist-media {
+  order: 2;
+}
+
+.stylist-media {
+  text-align: center;
+}
+
+.stylist-card img,
+.stylist-placeholder {
   width: 100%;
-  height: 100%;
-  min-height: 390px;
-  position: relative;
-  overflow: hidden;
+  aspect-ratio: 4 / 5;
+  border: 1px solid rgba(8, 8, 8, 0.28);
+  object-fit: cover;
+  background: var(--ash);
+}
+
+.stylist-placeholder {
+  display: grid;
+  place-items: center;
+  color: var(--soft-white);
   background:
-    radial-gradient(circle at 50% 28%, rgba(255, 255, 255, 0.74), transparent 28%),
-    linear-gradient(90deg, rgba(8, 8, 8, 0.12), transparent 35%, rgba(8, 8, 8, 0.12)),
-    repeating-linear-gradient(0deg, #f1eee8 0 34px, #d9d5cf 35px 37px);
+    linear-gradient(145deg, rgba(8, 8, 8, 0.86), rgba(85, 85, 85, 0.74)),
+    var(--charcoal);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.5rem, 7vw, 4.25rem);
 }
 
-.portrait-frame::before {
-  content: "";
-  position: absolute;
-  inset: 46px 42px auto auto;
-  width: 118px;
-  height: 192px;
-  border: 6px solid var(--black);
-  border-radius: 70px 70px 0 0;
-  opacity: 0.9;
+.stylist-copy {
+  min-width: 0;
+  max-width: 720px;
 }
 
-.stylist,
-.client,
-.chair-back {
-  position: absolute;
-  background: var(--black);
+.stylist-role,
+.services-label {
+  margin: 0;
+  color: var(--charcoal);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
 }
 
-.stylist {
-  width: 104px;
-  height: 230px;
-  left: 54px;
-  bottom: 64px;
-  border-radius: 52px 52px 20px 20px;
+.stylist-card h3 {
+  margin: 6px 0 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.55rem, 2.8vw, 2.2rem);
+  font-weight: 500;
+  line-height: 1;
 }
 
-.stylist::before {
-  content: "";
-  position: absolute;
-  left: 25px;
-  top: -42px;
-  width: 58px;
-  height: 58px;
-  border-radius: 50%;
-  background: var(--black);
+.stylist-media .stylist-role {
+  margin-top: 14px;
 }
 
-.stylist::after {
-  content: "";
-  position: absolute;
-  right: -60px;
-  top: 72px;
-  width: 94px;
-  height: 10px;
-  background: var(--black);
-  transform: rotate(18deg);
-  transform-origin: left center;
+.stylist-card p,
+.stylist-card li {
+  line-height: 1.68;
 }
 
-.client {
-  width: 146px;
-  height: 156px;
-  right: 64px;
-  bottom: 118px;
-  border-radius: 78px 78px 20px 20px;
-  background:
-    repeating-linear-gradient(112deg, #161616 0 7px, #777 8px 11px, #111 12px 18px);
+.stylist-card p {
+  margin: 0 0 12px;
 }
 
-.client::after {
-  content: "";
-  position: absolute;
-  left: 14px;
-  right: 14px;
-  bottom: -66px;
-  height: 78px;
-  border-radius: 44px 44px 10px 10px;
-  background: var(--black);
+.stylist-card ul {
+  margin: 6px 0 14px;
+  padding-left: 20px;
 }
 
-.chair-back {
-  left: 94px;
-  right: 46px;
-  bottom: 24px;
-  height: 96px;
-  border-radius: 18px 18px 0 0;
+.services-label {
+  margin-top: 16px;
 }
 
 .section-copy p,
@@ -785,13 +787,17 @@ h2 {
 }
 
 @media (max-width: 980px) {
-  .hero,
-  .about {
+  .hero {
     grid-template-columns: 1fr;
   }
 
-  .about {
-    gap: 32px;
+  .team-grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .stylist-card:nth-child(even) {
+    grid-template-columns: minmax(0, 1fr) minmax(210px, 0.38fr);
   }
 
   .hero {
@@ -806,11 +812,19 @@ h2 {
   .contact-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  .contact-card:nth-child(3) {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: min(50%, 320px);
+  }
 }
 
 @media (max-width: 760px) {
   .nav {
+    width: min(100% - 20px, 1180px);
     min-height: 74px;
+    gap: 14px;
   }
 
   .menu-toggle {
@@ -824,34 +838,33 @@ h2 {
 
   .nav-links {
     position: absolute;
-    top: calc(100% - 4px);
-    left: 0;
-    right: 0;
+    top: calc(100% + 8px);
+    left: 50%;
+    right: auto;
+    width: min(100%, 360px);
     display: grid;
-    gap: 0;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
     padding: 12px;
     border: 1px solid var(--black);
     background: rgba(248, 247, 243, 0.96);
     box-shadow: var(--shadow);
-    transform: translateY(-12px);
+    transform: translate(-50%, -12px);
     opacity: 0;
     pointer-events: none;
     transition: opacity 220ms ease, transform 220ms ease;
   }
 
   .nav.open .nav-links {
-    transform: translateY(0);
+    transform: translate(-50%, 0);
     opacity: 1;
     pointer-events: auto;
   }
 
   .nav-links a {
-    padding: 14px;
-    border-bottom: 1px solid rgba(8, 8, 8, 0.1);
-  }
-
-  .nav-links a:last-child {
-    border-bottom: 0;
+    padding: 12px 8px;
+    border: 1px solid rgba(8, 8, 8, 0.16);
+    text-align: center;
   }
 
   .hero {
@@ -898,34 +911,23 @@ h2 {
   }
 
   .about {
-    gap: 28px;
     text-align: center;
-    justify-items: center;
   }
 
-  .section-copy {
-    display: grid;
-    justify-items: center;
-    width: min(100%, 520px);
+  .team-grid {
+    gap: 20px;
   }
 
   .divider.small {
     margin: 18px auto;
   }
 
-  .section-copy > p:not(.section-kicker) {
-    max-width: 34rem;
-    margin: 0 auto;
+  .stylist-card {
+    text-align: left;
   }
 
-  .portrait-panel {
-    width: min(100%, 520px);
-    min-height: 360px;
-    margin: 0 auto;
-  }
-
-  .portrait-frame {
-    min-height: 318px;
+  .stylist-media {
+    position: static;
   }
 
   .contact {
@@ -933,7 +935,17 @@ h2 {
   }
 
   .contact-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+  }
+
+  .contact-card {
+    min-height: 178px;
+    padding: 20px 12px;
+  }
+
+  .contact-card:nth-child(3) {
+    width: min(50%, 260px);
   }
 }
 
@@ -984,13 +996,26 @@ h2 {
     transform-origin: bottom left;
   }
 
-  .portrait-panel {
+  .stylist-card {
+    grid-template-columns: 1fr;
     padding: 14px;
-    min-height: 320px;
   }
 
-  .portrait-frame {
-    min-height: 292px;
+  .stylist-card:nth-child(even) {
+    grid-template-columns: 1fr;
+  }
+
+  .stylist-card:nth-child(even) .stylist-media {
+    order: 0;
+  }
+
+  .stylist-card img,
+  .stylist-placeholder {
+    max-height: 420px;
+  }
+
+  .contact-card:nth-child(3) {
+    width: min(64%, 240px);
   }
 
   .contact {
